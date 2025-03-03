@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "A9xaY1rv1BPGH5j8zN9TK9aZylac1TAtxk0teqAzdGA=",
+  "Source": "WebApiLivros",
+  "BasePath": "_content/WebApiLivros",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
