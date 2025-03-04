@@ -136,3 +136,4 @@ C:\Users\Danilo\Desktop\Programacao\WebApiLivros\WebApiLivros\obj\Debug\net8.0\W
 C:\Users\Danilo\Desktop\Programacao\WebApiLivros\WebApiLivros\obj\Debug\net8.0\WebApiLivros.genruntimeconfig.cache
 C:\Users\Danilo\Desktop\Programacao\WebApiLivros\WebApiLivros\obj\Debug\net8.0\ref\WebApiLivros.dll
 C:\Users\Danilo\Desktop\Programacao\WebApiLivros\WebApiLivros\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\Danilo\Desktop\Programacao\WebApiLivros\WebApiLivros\obj\Debug\net8.0\WebApiLivros.sourcelink.json

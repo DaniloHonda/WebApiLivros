@@ -1,6 +1,58 @@
 [
   {
     "ContainingType": "WebApiLivros.Controllers.AutorController",
+    "Method": "BuscarAutor",
+    "RelativePath": "api/Autor/BuscarAutor",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "WebApiLivros.Models.ResponseModel\u00601[[WebApiLivros.Models.AutorModel, WebApiLivros, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApiLivros.Controllers.AutorController",
+    "Method": "BuscarAutorPorIdLivro",
+    "RelativePath": "api/Autor/BuscarAutorPorIdLivro",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idLivro",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "WebApiLivros.Models.ResponseModel\u00601[[WebApiLivros.Models.AutorModel, WebApiLivros, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApiLivros.Controllers.AutorController",
     "Method": "ListarAutores",
     "RelativePath": "api/Autor/ListarAutores",
     "HttpMethod": "GET",
