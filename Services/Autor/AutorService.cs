@@ -42,14 +42,16 @@ namespace WebApiLivros.Services.Autor
             ResponseModel<AutorModel> response = new ResponseModel<AutorModel>();
             try
             {
-                var autor = _context.Autores.FirstOrDefault(autorBanco => autorBanco.Livros.Any(livro => livro.Id == idLivro));
-                if (autor == null)
+                // pega AutorModel de dentro da livro model e o id do autor referente ao livro
+                var livro = _context.Livros.Include(livro => livro.Autor).FirstOrDefault(livro => livro.Id == idLivro);
+
+                if (livro == null)
                 {
                     response.Mensagem = "Autor não encontrado";
                     response.Status = false;
                     return response;
                 }
-                response.Dados = autor;
+                response.Dados = livro.Autor; // retorna apenas o autor
                 response.Mensagem = "Autor encontrado com sucesso";
                 return response;
             }
