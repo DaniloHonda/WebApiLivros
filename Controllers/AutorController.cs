@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApiLivros.Dto.Autor;
 using WebApiLivros.Models;
 using WebApiLivros.Services.Autor;
 
@@ -47,6 +48,39 @@ namespace WebApiLivros.Controllers
                 return Ok(autor);
             }
             return BadRequest(autor);
+        }
+
+        [HttpPost("CriarAutor")]
+        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> CriarAutor(AutorCriacaoDto autor)
+        {
+            var autorCriado = await _autorInterface.CriarAutor(autor);
+            if (autorCriado.Status)
+            {
+                return Ok(autorCriado);
+            }
+            return BadRequest(autorCriado);
+        }
+
+        [HttpPut("AtualizarAutor")]
+        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> AtualizarAutor(AutorAtualizarDto autor)
+        {
+            var autorAtualizado = await _autorInterface.AtualizarAutor(autor);
+            if (autorAtualizado.Status)
+            {
+                return Ok(autorAtualizado);
+            }
+            return BadRequest(autorAtualizado);
+        }
+
+        [HttpDelete("DeletarAutor")]
+        public async Task<ActionResult<ResponseModel<List<AutorModel>>>> DeletarAutor(int id)
+        {
+            var autorDeletado = await _autorInterface.DeletarAutor(id);
+            if (autorDeletado.Status)
+            {
+                return Ok(autorDeletado);
+            }
+            return BadRequest(autorDeletado);
         }
     }
 }

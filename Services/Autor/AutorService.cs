@@ -1,6 +1,7 @@
 ﻿using WebApi_Livros.Data;
 using WebApiLivros.Models;
 using Microsoft.EntityFrameworkCore;
+using WebApiLivros.Dto.Autor;
 
 
 namespace WebApiLivros.Services.Autor
@@ -74,7 +75,90 @@ namespace WebApiLivros.Services.Autor
 
                 return response;
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
+                response.Mensagem = ex.Message;
+                response.Status = false;
+                return response;
+            }
+        }
+
+        public async Task<ResponseModel<List<AutorModel>>> CriarAutor(AutorCriacaoDto autor)
+        {
+            ResponseModel<List<AutorModel>> response = new ResponseModel<List<AutorModel>>();
+            try
+            {
+                var autorCriado = new AutorModel()
+                {
+                    Nome = autor.Nome,
+                    Sobrenome = autor.Sobrenome
+                };
+
+                _context.Add(autorCriado); // recebe o autor model, nao autor dto
+                await _context.SaveChangesAsync();
+                response.Mensagem = "Autor criado com sucesso";
+                response.Dados = await _context.Autores.ToListAsync();
+                response.Status = true;
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Mensagem = ex.Message;
+                response.Status = false;
+                return response;
+            }
+        }
+
+        public async Task<ResponseModel<List<AutorModel>>> AtualizarAutor(AutorAtualizarDto autor)
+        {
+            ResponseModel<List<AutorModel>> response = new ResponseModel<List<AutorModel>>();
+            try
+            {
+                var autorAtualizado = _context.Autores.FirstOrDefault(autorBanco => autorBanco.Id == autor.Id);
+
+                if (autor == null)
+                {
+                    response.Mensagem = "Autor não encontrado";
+                    response.Status = false;
+                    return response;
+                }
+
+                autorAtualizado.Nome = autor.Nome;
+                autorAtualizado.Sobrenome = autor.Sobrenome;
+                await _context.SaveChangesAsync();
+                response.Dados = await _context.Autores.ToListAsync();
+                response.Mensagem = "Autor atualizado com sucesso";
+                return response;
+            }
+            catch (Exception ex)
+            {
+                response.Mensagem = ex.Message;
+                response.Status = false;
+                return response;
+            }
+        }
+
+        public async Task<ResponseModel<List<AutorModel>>> DeletarAutor(int id)
+        {
+            ResponseModel<List<AutorModel>> response = new ResponseModel<List<AutorModel>>();
+
+            try
+            {
+                var autor = _context.Autores.FirstOrDefault(autor => autor.Id == id);
+                if (autor == null)
+                {
+                    response.Mensagem = "Autor não encontrado";
+                    response.Status = false;
+                    return response;
+                }
+                _context.Remove(autor);
+                await _context.SaveChangesAsync();
+                response.Dados = await _context.Autores.ToListAsync();
+                response.Mensagem = "Autor deletado com sucesso";
+                return response;
+            }
+            catch (Exception ex)
+            {
                 response.Mensagem = ex.Message;
                 response.Status = false;
                 return response;
