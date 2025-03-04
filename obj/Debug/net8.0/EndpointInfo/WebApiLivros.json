@@ -246,6 +246,35 @@
           }
         }
       }
+    },
+    "/api/Livro/ListarLivros": {
+      "get": {
+        "tags": [
+          "Livro"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LivroModelListResponseModel"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LivroModelListResponseModel"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LivroModelListResponseModel"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -325,6 +354,43 @@
         "properties": {
           "dados": {
             "$ref": "#/components/schemas/AutorModel"
+          },
+          "mensagem": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LivroModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "autor": {
+            "$ref": "#/components/schemas/AutorModel"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LivroModelListResponseModel": {
+        "type": "object",
+        "properties": {
+          "dados": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LivroModel"
+            },
+            "nullable": true
           },
           "mensagem": {
             "type": "string",

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebApiLivros")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+190e1599e8debd62aa9937662053f6b7b95e8e8e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f198671995f600b5f3e533e62e6342c9dcfdd82")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebApiLivros")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebApiLivros")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
