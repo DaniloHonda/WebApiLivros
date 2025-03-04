@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebApi_Livros.Data;
 using WebApiLivros.Services.Autor;
+using WebApiLivros.Services.Livros;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IAutorInterface, AutorService>(); // Adiciona o serviço de Autor
+builder.Services.AddScoped<ILivroInterface, LivroService>(); // Adiciona o serviço de Autor
 
 var app = builder.Build();
 

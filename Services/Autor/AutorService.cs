@@ -98,7 +98,6 @@ namespace WebApiLivros.Services.Autor
                 await _context.SaveChangesAsync();
                 response.Mensagem = "Autor criado com sucesso";
                 response.Dados = await _context.Autores.ToListAsync();
-                response.Status = true;
                 return response;
             }
             catch (Exception ex)
